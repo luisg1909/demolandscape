@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Developer Portfolio</title>
+    <style>
+        /* Link Styling */
+        a:link, a:visited {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            color: darkblue;
+            text-decoration: underline;
+        }
+
+        /* Shadow Text */
+        .shadow-text {
+            font-size: 14px;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Background and Layout */
+        body {
+            background: url('img/tech.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* About Me */
+        .about-me {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.85);
+            margin-top: 30px;
+        }
+
+        /* Carousel Styling */
+        .carousel, .projects-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        .carousel-slide, .projects-slide {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item, .project-item {
+            min-width: 100%;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        .carousel-item img, .project-item img {
+            width: 100%;
+            max-height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* Carousel Navigation */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 50%;
+        }
+        .prev-btn {
+            left: 10px;
+        }
+        .next-btn {
+            right: 10px;
+        }
+        .profile-info{
+           text-align: center;
+           padding: 30px 20px;
+           background: rgba(13, 61, 103, 0.85);
+           border: 2px solid white;
+		   border-radius: 25px;
+        }
+        /* Contact and Social Links */
+        .contact-info, .social-links {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header and Carousel Section -->
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+    </header>
+
+   
+
+    <!-- About Me Section -->
+    <section class="about-me">
+        <h2>About Me</h2>
+        <p>I am a software developer with over 7 years of experience in building robust applications. My expertise spans across various programming languages and frameworks, including .NET, Angular, and Java. I am passionate about creating efficient and scalable solutions that drive value for clients and enhance user experience.</p>
+    </section>
+
+ <!-- New Personal Achievements Carousel -->
+    <section class="carousel">
+        <h2>Personal Highlights</h2>
+        <div class="carousel-slide">
+            <!-- Achievement Section -->
+            <div class="carousel-item">
+                <img src="img/5.png" height="120px" width="50px"alt="My Achievements">
+                <h3>Achievements as a Programmer</h3>
+                <p class="profile-info">I have developed impactful applications used by thousands of users and received recognition for innovative solutions across multiple projects.I have led and been part of multiple projects until they were successful and clients were satisfied with the final product.</p>
+            </div>
+            <!-- Design Patterns Section -->
+            <div class="carousel-item">
+                <img src="img/6.jpg" height="120px" width="50px" alt="Design Patterns">
+                <h3>Design Patterns and Best Practices</h3>
+                <p class="profile-info">I utilize design patterns to improve applications perfomance,reuse code and scalable solutions. patterns like MVC, Singleton, factory abstract, Observer, ensuring efficient, scalable, and maintainable code in all my projects.</p>
+            </div>
+            <!-- Adaptability Section -->
+            <div class="carousel-item">
+                <img src="img/8.png"  height="120px" width="50px" alt="Adaptability to Scrum">
+                <h3>Adaptable to Agile project management methodologies and tools</h3>
+                <p  class="profile-info">I excel in team environments, adapting quickly to Scrum methodologies and contributing effectively in agile settings.Used tools like Trello, Jira,Git, devops, scrum methodology, scrumban, Kanban, and boards of agile methodologies for dev Tasks.</p>
+            </div>
+            <div class="carousel-item">
+                <img src="img/12.jpg"  height="120px" width="50px" alt="Adaptability to Scrum">
+                <h3>Communication is key, bilingual skills are a valuable asset</h3>
+                <p class="profile-info">I also are fluent in English and Spanish, in todays world,a highly skilled programmer is needed, for meets the growing demand for language proficiency in the tech world.  This bilingual ability not only enhances team collaboration but also opens opportunities to communicate with clients, understand documentation in multiple languages, and adapt to various cultures. </p>
+            </div>
+            <div class="carousel-item">
+                <img src="img/17.png"  height="120px" width="50px" alt="Adaptability to Scrum">
+                <h3>proficiency in Software languages and Cloud</h3>
+                <p class="profile-info">I also have Mastering software languages like Java,.net,react,Angular,c,c++,python,php,delphi
+ and cloud technologies, particularly AWS and DevOps, is critical in today’s tech landscape. 
+  cloud services and serverless, offers scalable solutions that allow businesses to grow efficiently and adapt quickly </p>
+
+
+
+
+</p>
+            </div>
+        </div>
+        <button class="carousel-btn prev-btn" onclick="prevCarouselItem()">❮</button>
+        <button class="carousel-btn next-btn" onclick="nextCarouselItem()">❯</button>
+    </section>
+    <!-- Projects Carousel Section -->
+    <section class="projects-carousel">
+        <h2>My Projects</h2>
+        <div class="projects-slide">
+            <!-- Project 1 -->
+            <div class="project-item">
+                <img src="img/1031.png" alt="Twitter Clone">
+                <h3>Twitter Clone with Angular</h3>
+                <p class="profile-info">A scalable Twitter clone built using Angular for the frontend and Firebase for real-time updates.</p>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-item">
+                <img src="img/09.png" alt="Blog System">
+                <h3>Blog System with Roles (React)</h3>
+                <p class="profile-info">A blog platform where users can have different roles, developed using React for interactive components and Node.js for backend.</p>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-item">
+                <img src="img/10.png" alt="Java Web Application">
+                <h3>Java Web App Excel clone</h3>
+                <p class="profile-info">Java-based applications similar to Excel, enhancing data manipulation.</p>
+            </div>
+            <!-- GitHub Projects Section -->
+            <div class="project-item">
+                <img src="img/11.jpg" alt="More projects">
+                <h3>Consult all my projects on GitHub</h3>
+                <p class="profile-info">Check out all my projects on my <a target="_blank" href="https://github.com/luisg1909?tab=repositories">GitHub page</a> to see all my capabilities.</p>
+            </div>
+        </div>
+        <button class="carousel-btn prev-btn" onclick="prevProject()">❮</button>
+        <button class="carousel-btn next-btn" onclick="nextProject()">❯</button>
+    </section>
+
+    <!-- Contact Info and Social Links -->
+    <section class="contact-info">
+        <h2>Contact Info</h2>
+        <p>Email: luislinares01@outlook.com | Phone: (502) ᴈ58Ɥ-Ƽ885</p>
+        <p>Location: Guatemala City, open to work remotely from anywhere</p>
+
+    </section>
+    
+    <section class="social-links">
+        <h2>Connect with Me</h2>
+        <a target="_blank" href="https://www.linkedin.com/in/luis-sd-980570295/">LinkedIn</a> | <a target="_blank" href="https://github.com/luisg1909?tab=repositories">GitHub</a> | <a href="https://x.com/Luisethere" target="_blank">Twitter</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Software Developer Portfolio. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Carousels -->
+    <script>
+        // Variables for Carousels
+        let personalCarouselIndex = 0;
+        let projectIndex = 0;
+
+        // Functions for Personal Highlights Carousel
+        function showCarouselItem(index) {
+            const carouselItems = document.querySelector('.carousel-slide');
+            const totalItems = carouselItems.children.length;
+            personalCarouselIndex = (index + totalItems) % totalItems;
+            carouselItems.style.transform = `translateX(-${personalCarouselIndex * 100}%)`;
+        }
+        function prevCarouselItem() {
+            showCarouselItem(personalCarouselIndex - 1);
+        }
+        function nextCarouselItem() {
+            showCarouselItem(personalCarouselIndex + 1);
+        }
+
+        // Functions for Projects Carousel
+        function showProject(index) {
+            const projects = document.querySelector('.projects-slide');
+            const totalProjects = projects.children.length;
+            projectIndex = (index + totalProjects) % totalProjects;
+            projects.style.transform = `translateX(-${projectIndex * 100}%)`;
+        }
+        function prevProject() {
+            showProject(projectIndex - 1);
+        }
+        function nextProject() {
+            showProject(projectIndex + 1);
+        }
+    </script>
+</body>
+</html>
