@@ -206,6 +206,63 @@
             padding: 10px;
             background: rgba(0, 0, 0, 0.8);
         }
+		
+		
+		.tabs-container {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Menú de Pestañas */
+    .tab-menu {
+        display: flex;
+        overflow-x: auto;
+        background-color: #343a40;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .tab-link {
+        background-color: inherit;
+        color: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 20px;
+        transition: 0.3s;
+        font-weight: bold;
+        white-space: nowrap;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .tab-link:hover {
+        background-color: #495057;
+    }
+
+    .tab-link.active {
+        background-color: #279CF5; /* Tu color azul */
+        color: white;
+    }
+
+    /* Contenido */
+    .tab-content {
+        display: none;
+        padding: 20px;
+        border: 1px solid #dee2e6;
+        border-top: none;
+        background-color: #fff;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    /* Ajuste de la tabla dentro del tab */
+    .interview-table {
+        margin: 0 !important;
+        box-shadow: none !important;
+        background-color: #f8f9fa !important;
+    }
 
     </style>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -226,64 +283,106 @@
    
 	<div id="errorMsg" class="error-popup">Error: Audio file not found.</div>
 
-<table class="interview-table">
-    <thead>
-        <tr style="background-color: #343a40; color: white;">
-            <th>Interview Topic / Question</th>
-            <th style="text-align: center;">Audio Response</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="question-text">Who I am (Presentation)</td>
-            <td style="text-align: center;">
-                <button class="play-button" onclick="playAudio('presentation', this)">
-                    <img src="img/horn.jpg"> Play Sound
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td class="question-text">Tell us about a technical challenge and how you resolved it.</td>
-            <td style="text-align: center;">
-                <button class="play-button" onclick="playAudio('challenge', this)">
-                    <img src="img/horn.jpg"> Play Sound
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td class="question-text">How do you integrate LLMs into existing .NET or Go architectures?</td>
-            <td style="text-align: center;">
-                <button class="play-button" onclick="playAudio('llm', this)">
-                    <img src="img/horn.jpg"> Play Sound
-                </button>
-            </td>
-        </tr>
-		<tr>
-		<td class="question-text">What are your main professional strengths and weaknesses?</td>
-		<td style="text-align: center;">
-			<button class="play-button" onclick="playAudio('strengths', this)">
-				<img src="img/horn.jpg"> Play Sound
-			</button>
-		</td>
-		</tr>
-        <tr>
-            <td class="question-text">Describe your approach to designing high-concurrency systems in Golang or Java.</td>
-            <td style="text-align: center;">
-                <button class="play-button" onclick="playAudio('concurrency', this)">
-                    <img src="img/horn.jpg"> Play Sound
-                </button>
-            </td>
-        </tr>
-		<tr>
-		<td class="question-text">What are your salary expectations for this role?</td>
-		<td style="text-align: center;">
-			<button class="play-button" onclick="playAudio('salary', this)">
-				<img src="img/horn.jpg" style="width:20px;"> Play Sound
-			</button>
-		</td>
-		</tr>
-    </tbody>
-</table>
+<div class="tabs-container">
+    <div class="tab-menu">
+        <button class="tab-link active" onclick="openTab(event, 'tab-presentation')">Presentation</button>
+        <button class="tab-link" onclick="openTab(event, 'tab-challenge')">Challenge resolved</button>
+        <button class="tab-link" onclick="openTab(event, 'tab-llm')">AI/LLM</button>
+        <button class="tab-link" onclick="openTab(event, 'tab-strengths')">Strengths and weaknesses</button>
+        <button class="tab-link" onclick="openTab(event, 'tab-concurrency')">Concurrency</button>
+        <button class="tab-link" onclick="openTab(event, 'tab-salary')">Salary Expectations</button>
+    </div>
+
+    <div id="tab-presentation" class="tab-content active">
+        <table class="interview-table">
+            <tbody>
+                <tr>
+                    <td class="question-text">Who I am (Presentation)</td>
+                    <td style="text-align: center;">
+                        <button class="play-button" onclick="playAudio('presentation', this)">
+                            <img src="img/horn.jpg" style="width:20px;"> Play Sound
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tab-challenge" class="tab-content">
+        <table class="interview-table">
+            <tbody>
+                <tr>
+                    <td class="question-text">Tell us about a technical challenge  and how you resolved it </td>
+                    <td style="text-align: center;">
+                        <button class="play-button" onclick="playAudio('challenge', this)">
+                            <img src="img/horn.jpg" style="width:20px;"> Play Sound
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tab-llm" class="tab-content">
+        <table class="interview-table">
+            <tbody>
+                <tr>
+                    <td class="question-text">How do you integrate LLMs into existing .NET or Go architectures?</td>
+                    <td style="text-align: center;">
+                        <button class="play-button" onclick="playAudio('llm', this)">
+                            <img src="img/horn.jpg" style="width:20px;"> Play Sound
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tab-strengths" class="tab-content">
+        <table class="interview-table">
+            <tbody>
+                <tr>
+                    <td class="question-text">What are your main professional strengths and weaknesses?</td>
+                    <td style="text-align: center;">
+                        <button class="play-button" onclick="playAudio('strengths', this)">
+                            <img src="img/horn.jpg" style="width:20px;"> Play Sound
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tab-concurrency" class="tab-content">
+        <table class="interview-table">
+            <tbody>
+                <tr>
+                    <td class="question-text">Describe your approach to designing high-concurrency systems in Golang or Java.</td>
+                    <td style="text-align: center;">
+                        <button class="play-button" onclick="playAudio('concurrency', this)">
+                            <img src="img/horn.jpg" style="width:20px;"> Play Sound
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tab-salary" class="tab-content">
+        <table class="interview-table">
+            <tbody>
+                <tr>
+                    <td class="question-text">What are your salary expectations for this role?</td>
+                    <td style="text-align: center;">
+                        <button class="play-button" onclick="playAudio('salary', this)">
+                            <img src="img/horn.jpg" style="width:20px;"> Play Sound
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 	</section>
 
@@ -458,7 +557,25 @@ function showError() {
         errorDiv.className = errorDiv.className.replace("show", ""); 
     }, 3000);
 }
+function openTab(evt, tabId) {
+    let i, tabcontent, tablinks;
 
+    // Ocultar todos los contenidos
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+    }
+
+    // Quitar la clase "active" de todos los botones
+    tablinks = document.getElementsByClassName("tab-link");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+
+    // Mostrar la pestaña actual y añadir clase activa al botón
+    document.getElementById(tabId).classList.add("active");
+    evt.currentTarget.classList.add("active");
+}
 function playAudio(id, btn) {
     // Si ya hay un audio sonando del mismo botón (Pause/Resume)
     if (currentAudio && currentBtn === btn) {
