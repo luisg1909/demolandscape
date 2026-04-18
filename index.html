@@ -5,6 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software Developer Portfolio</title>
     <style>
+		.error-popup {
+			visibility: hidden;
+			min-width: 250px;
+			background-color: #ff4d4d; /* Fondo rojo */
+			color: #fff; /* Fuente blanca */
+			text-align: center;
+			border-radius: 8px;
+			padding: 16px;
+			position: fixed;
+			z-index: 1000;
+			right: 30px;
+			top: 30px;
+			font-weight: bold;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+			font-family: 'Segoe UI', sans-serif;
+		}
+
+		.error-popup.show {
+			visibility: visible;
+			-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+			animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		}
+
+		/* Animaciones para suavizar la aparición */
+		@-webkit-keyframes fadein { from {top: 0; opacity: 0;} to {top: 30px; opacity: 1;} }
+		@keyframes fadein { from {top: 0; opacity: 0;} to {top: 30px; opacity: 1;} }
+		@-webkit-keyframes fadeout { from {top: 30px; opacity: 1;} to {top: 0; opacity: 0;} }
+		@keyframes fadeout { from {top: 30px; opacity: 1;} to {top: 0; opacity: 0;} }
+	
+	
+		.interview-table {
+		
+			width: 100%;
+			border-collapse: collapse;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			margin: 20px 0;
+			background-color: #279CF5;
+			box-shadow: 0 4px 8px rgba(0,0,0,0.1);			
+		}
+		.interview-table th, .interview-table td {
+			padding: 15px 20px;
+			text-align: left;
+			border-bottom: 1px solid #dee2e6;
+		}
+		.interview-table tr:hover {
+			background-color: #f1f3f5;
+		}
+		.question-text {			
+			color: #343a40;
+			width: 70%;
+			font-weight: bold;
+		}
+	.play-button {
+		background-color: #28a745;
+		color: white;
+		border: none;
+		padding: 10px 15px;
+		border-radius: 4px;
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		min-width: 140px; /* Evita que el botón "salte" al cambiar el texto */
+		font-weight: bold;
+		transition: all 0.2s ease;
+	}
+
+	.play-button:active {
+		transform: scale(0.95);
+	}
+
+		.play-button img {
+			width: 20px;
+			height: 20px;
+			/* BORRA LA LÍNEA DEL FILTER AQUÍ */
+			object-fit: contain; 
+		}
+		.play-button:hover {
+			background-color: #218838;
+		}
+	
+	
+	
         /* Link Styling */
         a:link, a:visited {
             color: white;
@@ -139,7 +223,61 @@
     <section class="about-me">
         <h2>About Me</h2>
         <p>I am a software developer with over 7 years of experience in building robust applications. My expertise spans across various programming languages and frameworks, including .NET, Angular, and Java. I am passionate about creating efficient and scalable solutions that drive value for clients and enhance user experience.</p>
-    </section>
+   
+	<div id="errorMsg" class="error-popup">Error: Audio file not found.</div>
+
+<table class="interview-table">
+    <thead>
+        <tr style="background-color: #343a40; color: white;">
+            <th>Interview Topic / Question</th>
+            <th style="text-align: center;">Audio Response</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="question-text">Who I am (Presentation)</td>
+            <td style="text-align: center;">
+                <button class="play-button" onclick="playAudio('presentation', this)">
+                    <img src="img/horn.jpg"> Play Sound
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td class="question-text">Tell us about a technical challenge and how you resolved it.</td>
+            <td style="text-align: center;">
+                <button class="play-button" onclick="playAudio('challenge', this)">
+                    <img src="img/horn.jpg"> Play Sound
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td class="question-text">How do you integrate LLMs into existing .NET or Go architectures?</td>
+            <td style="text-align: center;">
+                <button class="play-button" onclick="playAudio('llm', this)">
+                    <img src="img/horn.jpg"> Play Sound
+                </button>
+            </td>
+        </tr>
+		<tr>
+		<td class="question-text">What are your main professional strengths and weaknesses?</td>
+		<td style="text-align: center;">
+			<button class="play-button" onclick="playAudio('strengths', this)">
+				<img src="img/horn.jpg"> Play Sound
+			</button>
+		</td>
+		</tr>
+        <tr>
+            <td class="question-text">Describe your approach to designing high-concurrency systems in Golang or Java.</td>
+            <td style="text-align: center;">
+                <button class="play-button" onclick="playAudio('concurrency', this)">
+                    <img src="img/horn.jpg"> Play Sound
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+	</section>
 
  <!-- New Personal Achievements Carousel -->
     <section class="carousel">
@@ -192,7 +330,17 @@
             <div class="project-item">
                 <img src="img/31.jpg" alt="Twitter Clone">
                 <h3>  <a HREF="https://luisg1909.github.io/xpressnetwork/" target="_blank">Twitter Clone</a></h3>
-                <p class="profile-info">A scalable Twitter clone built with React, TypeScript, and Bootstrap. This social network clone replicates Twitter's core features from its 2006 launch, allowing you to: Share ideas and tweets Follow friends Send private messages Experience the essence of Twitter in this mini social network clone!.</p>
+                <p class="profile-info">A scalable Twitter clone built with React, TypeScript, and Bootstrap.
+
+This social network clone replicates Twitter's core features from its 2006 launch, allowing you to:
+
+Share ideas and tweets
+
+Follow friends
+
+Send private messages
+
+Experience the essence of Twitter in this mini social network clone!.</p>
             </div>
             <div class="project-item">
                 <img src="img/h.jpg"  alt="Twitter Clone">
@@ -214,13 +362,14 @@ Basket functionality to add, view, and clear products.Displays all products grou
                 <h3> <a HREF="https://luisg1909.github.io/sharenetwork" target="_blank">Facebook clone</a></h3>
                 <p class="profile-info">A simple facebook clone using react, typescript and bootstrap.Share with friends and family through a simple app to connect and discuss your ideas..</p>
             </div>
-           <!-- Project 4 -->
+            <!-- Project 4 -->
             <div class="project-item">
                 <img src="img/14.jpg" alt="Java Web Application">
                 <h3>Blog system with roles (.Net)</h3>
                 <p class="profile-info">The .Net Blog System with Roles is a robust, scalable application designed to manage user-generated content with varying levels of access. Built with best practices and using the Factory and Abstract Factory design patterns, the system is structured for efficient role-based management, allowing administrators, editors, and standard users to access different levels of functionality.</p>
             </div>
-	    <div class="project-item">
+            <!-- GitHub Projects Section -->
+            <div class="project-item">
                 <img src="img/30.jpg" alt="More projects">
                 <h3>Capable to solve algorithms and code challenges </h3>
                 <p class="profile-info">Knowing how to solve algorithms and code challenges is essential for any programmer because it sharpens problem-solving skills, logical thinking, and the ability to write efficient code. These challenges often simulate real-world problems in a simplified form, training developers to break down complex tasks into manageable steps and design optimal solutions. Mastering algorithms helps a programmer understand fundamental principles such as time and space complexity, recursion, data structures, and design patterns—all critical for writing performant applications.
@@ -228,8 +377,7 @@ Basket functionality to add, view, and clear products.Displays all products grou
 Beyond technical benefits, algorithmic thinking is key in technical interviews, where companies use code challenges to evaluate candidates' analytical abilities. Regular practice with coding problems enhances confidence and prepares developers to tackle unfamiliar problems under pressure. In a rapidly evolving industry, being proficient in algorithms enables programmers to adapt quickly, optimize existing systems, and contribute to innovative, scalable solutions.
  so you can see my leetcode page to see how i am able to resolve an algorithm problem with not difficulty : <a target="_blank" href="https://leetcode.com/u/luisgodoy0100/">leetcode page</a> .</p>
             </div>
-            <!-- GitHub Projects Section -->
-            <div class="project-item">
+             <div class="project-item">
                 <img src="img/11.jpg" alt="More projects">
                 <h3>Consult all my projects on GitHub</h3>
                 <p class="profile-info">Check out all my projects on my <a target="_blank" href="https://github.com/luisg1909?tab=repositories">GitHub page</a> to see all my capabilities.</p>
@@ -250,12 +398,12 @@ Beyond technical benefits, algorithmic thinking is key in technical interviews, 
     
     <section class="social-links">
         <h2>Connect with Me</h2>
-        <a target="_blank" href="https://www.linkedin.com/in/luis-let-499294376/">LinkedIn</a> | <a target="_blank" href="https://github.com/luisg1909?tab=repositories">GitHub</a> | <a href="https://x.com/Luisethere" target="_blank">Twitter</a>
+        <a target="_blank" href="https://www.linkedin.com/in/luis-sd-980570295/">LinkedIn</a> | <a target="_blank" href="https://github.com/luisg1909?tab=repositories">GitHub</a> | <a href="https://x.com/Luisethere" target="_blank">Twitter</a>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Software Developer Portfolio. All Rights Reserved.</p>
+        <p>&copy; 2024 Software Developer Portfolio. All Rights Reserved.</p>
     </footer>
 
     <!-- JavaScript for Carousels -->
@@ -291,6 +439,61 @@ Beyond technical benefits, algorithmic thinking is key in technical interviews, 
         function nextProject() {
             showProject(projectIndex + 1);
         }
+	let currentAudio = null;
+let currentBtn = null;
+
+function showError() {
+    const errorDiv = document.getElementById("errorMsg");
+    errorDiv.className = "error-popup show";
+    // Desaparece después de 3 segundos
+    setTimeout(() => { 
+        errorDiv.className = errorDiv.className.replace("show", ""); 
+    }, 3000);
+}
+
+function playAudio(id, btn) {
+    // Si ya hay un audio sonando del mismo botón (Pause/Resume)
+    if (currentAudio && currentBtn === btn) {
+        if (!currentAudio.paused) {
+            currentAudio.pause();
+            btn.innerHTML = `<img src="img/horn.jpg" style="width:20px;"> Resume`;
+        } else {
+            currentAudio.play();
+            btn.innerHTML = `<img src="img/horn.jpg" style="width:20px;"> Stop`;
+        }
+        return;
+    }
+
+    // Detener audio anterior si existe
+    if (currentAudio) {
+        currentAudio.pause();
+        currentBtn.innerHTML = `<img src="img/horn.jpg" style="width:20px;"> Play Sound`;
+    }
+
+    // Intentar cargar el nuevo audio
+    const newAudio = new Audio(`img/audio_${id}.mp3`);
+    
+    // CAPTURA DE ERROR: Si el archivo no se encuentra
+    newAudio.onerror = () => {
+        showError();
+        btn.innerHTML = `<img src="img/horn.jpg" style="width:20px;"> Play Sound`;
+        currentAudio = null;
+    };
+
+    newAudio.oncanplaythrough = () => {
+        currentAudio = newAudio;
+        currentBtn = btn;
+        currentAudio.play();
+        btn.innerHTML = `<img src="img/horn.jpg" style="width:20px;"> Stop`;
+
+        currentAudio.onended = () => {
+            btn.innerHTML = `<img src="img/horn.jpg" style="width:20px;"> Play Sound`;
+            currentAudio = null;
+            currentBtn = null;
+        };
+    };
+}
+
     </script>
     <!-- Default Statcounter code for cv
 https://luisg1909.github.io/demolandscape/ -->
