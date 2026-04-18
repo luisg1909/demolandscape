@@ -290,7 +290,9 @@
         <button class="tab-link" onclick="openTab(event, 'tab-llm')">AI/LLM</button>
         <button class="tab-link" onclick="openTab(event, 'tab-strengths')">Strengths and weaknesses</button>
         <button class="tab-link" onclick="openTab(event, 'tab-concurrency')">Concurrency</button>
-        <button class="tab-link" onclick="openTab(event, 'tab-salary')">Salary</button>
+        <button class="tab-link" onclick="openTab(event, 'tab-conflict')">Team conflict</button>
+		<button class="tab-link" onclick="openTab(event, 'tab-salary')">Salary</button>
+
     </div>
 
     <div id="tab-presentation" class="tab-content active">
@@ -367,7 +369,20 @@
             </tbody>
         </table>
     </div>
-
+    <div id="tab-conflict" class="tab-content">
+        <table class="interview-table">
+            <tbody>
+                <tr>
+                    <td class="question-text">Tell me about a time when you had a conflict with your team and how you resolved it.</td>
+                    <td style="text-align: center;">
+                        <button class="play-button" onclick="playAudio('conflict', this)">
+                            <img src="img/horn.jpg" style="width:20px;"> Play Sound
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div id="tab-salary" class="tab-content">
         <table class="interview-table">
             <tbody>
@@ -382,6 +397,8 @@
             </tbody>
         </table>
     </div>
+	
+	
 </div>
 
 	</section>
