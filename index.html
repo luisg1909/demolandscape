@@ -291,6 +291,7 @@
         <button class="tab-link" onclick="openTab(event, 'tab-strengths')">Strengths and weaknesses</button>
         <button class="tab-link" onclick="openTab(event, 'tab-concurrency')">Concurrency</button>
         <button class="tab-link" onclick="openTab(event, 'tab-conflict')">Team conflict</button>
+        <button class="tab-link" onclick="openTab(event, 'tab-hired')">Why hire</button>        
 		<button class="tab-link" onclick="openTab(event, 'tab-salary')">Salary</button>
 
     </div>
@@ -383,6 +384,21 @@
             </tbody>
         </table>
     </div>
+     <div id="tab-hired" class="tab-content">
+        <table class="interview-table">
+            <tbody>
+                <tr>
+                    <td class="question-text">Why should we hire you?</td>
+                    <td style="text-align: center;">
+                        <button class="play-button" onclick="playAudio('hired', this)">
+                            <img src="img/horn.jpg" style="width:20px;"> Play Sound
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
     <div id="tab-salary" class="tab-content">
         <table class="interview-table">
             <tbody>
@@ -397,6 +413,9 @@
             </tbody>
         </table>
     </div>
+    
+    
+ 
 	
 	
 </div>
